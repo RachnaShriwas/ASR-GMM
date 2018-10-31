@@ -83,14 +83,14 @@ def _preprocess_data(args):
 
     print("Preprocessing Complete")
     print("Building features")
-
+    
     mfcc_features = []
     mfcc_labels = []
 
-    # with open("train_wavs", "r") as file:
-    #     full_wavs = file.readlines()
-    # full_wavs = [ele.strip() for ele in full_wavs]
-
+    #with open("train_wavs", "r") as file:
+     #   full_wavs = file.readlines()
+    #full_wavs = [ele.strip() for ele in full_wavs]
+    
     for full_wav in full_wavs:
         print("Computing features for file: ", full_wav)
 
@@ -114,7 +114,8 @@ def _preprocess_data(args):
     timit_df = pd.DataFrame()
     timit_df["features"] = mfcc_features
     timit_df["labels"] = mfcc_labels
-    timit_df.to_hdf("./features/mfcc/timit.hdf", "timit")
+    timit_df.to_hdf("./features/mfcc/train.hdf", "train")
+    
     
 if __name__ == "__main__":
 
